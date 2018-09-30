@@ -1,12 +1,15 @@
 from chalice import Chalice
 
 app = Chalice(app_name='restful_aurora_api')
-
+app.debug = True
 
 @app.route('/')
 def index():
     return {'hello': 'world'}
 
+@app.route('/introspect')
+def introspect():
+    return app.current_request.to_dict()
 
 # The view function above will return {"hello": "world"}
 # whenever you make an HTTP GET request to '/'.
