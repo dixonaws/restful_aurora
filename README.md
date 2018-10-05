@@ -18,11 +18,31 @@ create and deploy applications that use AWS Lambda. It provides:
 - A decorator based API for integrating with Amazon API Gateway, Amazon S3, Amazon SNS, Amazon SQS, and other AWS services.
 - Automatic IAM policy generation
 
+> Run this command from the restful_aurora directory 
+
 ```bash
-pip install chalice
+pip install -r requirements.txt
 ```
 
-Now, enter the restful_aurora_api directory, and issue the following command to deploy the API:
+Now, create a new API
+```bash
+chalice new-project restful_aurora_api
+```
+
+enter the restful_aurora_api directory, and issue the following command to deploy the API locally:
+```bash
+chalice local
+```
+
+> This will start a basic web server on your local machine and start serving the RESTful endpoint from localhost:8000
+
+Open a new terminal window and use curl to issue a GET request:
+
+```bash
+curl -x GET http://localhost:8000
+```
+
+Now, you can deploy the API to AWS API Gateway and Lambda with the following command:
 ```bash
 chalice deploy
 ```
@@ -43,13 +63,21 @@ Now you can test the API with curl:
 curl -X GET https://3nel6hbk0e.execute-api.us-east-1.amazonaws.com/api/ 
 ```
 
+If all is well, you should see something like this:
+
+```json
+{"hello": "world"}
+```
+
+Boom! You deployed API Gateway, Lambda, IAM roles, and all of the configuration to serve a basic RESTful API. Now
+lets do something more interesting, like accessing a database with that API.
+
 ## Create an Aurora database called "employees"
-Use the AWS Console to create a database called "employees."
+Use the AWS Console to create an Aurora-mysql database called "employees."
 
 ## Create a simple database and load some data
 Browse to http://www.jackdb.com and create an account. Jackdb is an online SQL client that we'll use to 
 connect to the employees database. Use Jackdb to establish a connection to the Aurora database and do the following:
 1. Use create_employees_table.sql to create a new table
 2. Import employees.csv into the table
-
 
