@@ -86,3 +86,10 @@ You can reference the code in ```app.py.txt``` to modify ```app.py``` in your re
 a list of employees. Note that you'll have to create several Systems Manager Parameter Store values ahead of 
 time. See https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html
 or ```aws ssm help``` to create values for the database, username, password, etc. per the code in app.py.txt.
+
+## Test your API locally
+Run ```chalice local``` and use the curl command to get a listing of employees in the database. For this to work,
+you will have to open the security group for your employees database so that you local machine can issue queries against it.
+
+## Deploy to API Gateway and Lambda
+If your API worked locally, then issue ```bash chalice deploy``` to deploy the new code to your RESTful endpoint.  
