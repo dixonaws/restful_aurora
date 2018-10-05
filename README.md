@@ -92,4 +92,4 @@ Run ```chalice local``` and use the curl command to get a listing of employees i
 you will have to open the security group for your employees database so that you local machine can issue queries against it.
 
 ## Deploy to API Gateway and Lambda
-If your API worked locally, then issue ```bash chalice deploy``` to deploy the new code to your RESTful endpoint.  
+If your API worked locally, then issue ```chalice deploy``` to deploy the new code to your RESTful endpoint.  
