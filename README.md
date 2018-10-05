@@ -82,6 +82,7 @@ connect to the employees database. Use Jackdb to establish a connection to the A
 2. Import employees.csv into the table
 
 ## Adjust your API to connect to the database
-You can use the code in ```app.py.txt``` to modify ```app.py``` in your restful_aurora_api directory. Note that you'll have
-to create some Systems Manager Parameter Store values ahead of time. See https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html
+You can reference the code in ```app.py.txt``` to modify ```app.py``` in your restful_aurora_api directory to return
+a list of employees. Note that you'll have to create several Systems Manager Parameter Store values ahead of 
+time. See https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html
 or ```aws ssm help``` to create values for the database, username, password, etc. per the code in app.py.txt.
